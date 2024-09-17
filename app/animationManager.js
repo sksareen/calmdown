@@ -1,16 +1,12 @@
 class AnimationManager {
-    // The constructor initializes the AnimationManager with the container
-    // element and the exercises object.
     constructor(container, exercises) {
         this.container = container;
         this.exercises = exercises;
         this.isExerciseActive = false;
-        this.isPaused = false;
         this.currentExercise = null;
         this.phase = 0;
         this.animationFrame = null;
         this.lastTimestamp = 0;
-        this.currentScale = 1;
         this.minScale = 1;
         this.maxScale = 5;
         this.lastPhaseType = null;
@@ -18,23 +14,26 @@ class AnimationManager {
         this.elapsedTime = 0;
         this.lastScale = 1;
         this.lastOpacity = 1;
+        this.sessionStartTime = null;
+        this.sessionDurations = []; // To store past session durations
+
+        this.instructionEl = document.getElementById('breather-extension-instruction');
+        this.countdownEl = document.getElementById('breather-extension-timer');
+        this.circleEl = document.getElementById('breather-extension-circle');
+
+        // Audio Element
+        this.audioEl = document.getElementById('guided-audio');
     }
 
-    // This method updates the instruction displayed on the screen.
     updateInstruction() {
         const currentPhase = this.exercises[this.currentExercise].phases[this.phase];
-        const instruction = document.getElementById('breather-extension-instruction');
-        if (instruction) {
-            instruction.textContent = currentPhase.instruction;
+        if (this.instructionEl) {
+            this.instructionEl.textContent = currentPhase.instruction;
         }
     }
 
-    // This method is the main animation loop. It is called every frame
-    // and updates the animation state.
     breathingAnimation(timestamp) {
-        if (!this.isExerciseActive || this.isPaused) {
-            return;
-        }
+        if (!this.isExerciseActive) return;
 
         if (!this.lastTimestamp) {
             this.lastTimestamp = timestamp;
@@ -47,64 +46,41 @@ class AnimationManager {
         const phaseDuration = currentPhase.duration;
         const progress = Math.min(this.elapsedTime / phaseDuration, 1);
 
-        // Update the circle animation
         this.updateCircleAnimation(currentPhase, progress);
-
-        // Update the countdown timer
         this.updateCountdown(phaseDuration - this.elapsedTime);
 
-        // If the phase is not finished, schedule the next frame
         if (progress < 1) {
             this.animationFrame = requestAnimationFrame(this.breathingAnimation.bind(this));
         } else {
-            // Otherwise, move to the next phase
             this.moveToNextPhase(timestamp);
-                // Play different sounds based on odd/even phases
-                if ((this.phase + 1) % 4 === 1) {
-                    const audio = new Audio('breathein.mp3');
-                    audio.volume = 0.3;
-                    audio.play();
-
-                }
-                if ((this.phase + 1) % 4 === 3) {
-                    const audio = new Audio('breatheout.mp3');
-                    audio.volume = 0.15;
-                    audio.play();
-                }
         }
 
         this.lastTimestamp = timestamp;
     }
 
-    // This method updates the circle animation based on the current phase
-    // and progress.
     updateCircleAnimation(currentPhase, progress) {
-        const circle = document.getElementById('breather-extension-circle');
-        if (circle) {
+        if (this.circleEl) {
             const newScale = this.getCircleScale(currentPhase.type, progress);
             const newOpacity = currentPhase.type === 'inhale' ? 0.8 + (0.2 * progress) : 1 - (0.3 * progress);
 
             if (Math.abs(newScale - this.lastScale) > 0.01 || Math.abs(newOpacity - this.lastOpacity) > 0.01) {
-                circle.style.transform = `scale(${newScale})`;
-                circle.style.opacity = newOpacity;
+                this.circleEl.style.transform = `scale(${newScale})`;
+                this.circleEl.style.opacity = newOpacity;
                 this.lastScale = newScale;
                 this.lastOpacity = newOpacity;
             }
         }
     }
 
-    // This method updates the countdown timer displayed on the screen.
     updateCountdown(remainingTime) {
-        const countdownTimer = document.getElementById('breather-extension-timer');
-        if (countdownTimer) {
+        if (this.countdownEl) {
             const remaining = Math.ceil(remainingTime / 1000);
-            if (remaining !== parseInt(countdownTimer.textContent)) {
-                countdownTimer.textContent = remaining > 0 ? `${remaining}` : '';
+            if (remaining !== parseInt(this.countdownEl.textContent)) {
+                this.countdownEl.textContent = remaining > 0 ? `${remaining}` : '';
             }
         }
     }
 
-    // This method moves to the next phase of the exercise.
     moveToNextPhase(timestamp) {
         this.lastPhaseType = this.exercises[this.currentExercise].phases[this.phase].type;
         this.phase = (this.phase + 1) % this.exercises[this.currentExercise].phases.length;
@@ -116,11 +92,8 @@ class AnimationManager {
         this.lastTimestamp = timestamp;
         this.updateInstruction();
         this.animationFrame = requestAnimationFrame(this.breathingAnimation.bind(this));
-
     }
 
-    // This method returns the scale of the circle for the given phase type
-    // and progress.
     getCircleScale(phaseType, progress) {
         switch (phaseType) {
             case 'inhale':
@@ -134,11 +107,9 @@ class AnimationManager {
         }
     }
 
-    // This method starts the animation.
     startAnimation(exercise) {
         this.currentExercise = exercise;
         this.isExerciseActive = true;
-        this.isPaused = false;
         this.phase = 0;
         this.lastTimestamp = 0;
         this.lastPhaseType = null;
@@ -149,66 +120,54 @@ class AnimationManager {
         this.updateInstruction();
         this.animationFrame = requestAnimationFrame(this.breathingAnimation.bind(this));
         console.log('AnimationManager.startAnimation called');
-        const audio = new Audio('breathein.mp3');
-        audio.volume = 0.3;
-        audio.play();
+        this.sessionStartTime = Date.now();
+
+        if (this.audioEl) {
+            this.audioEl.currentTime = 0;
+            this.audioEl.play();
+        }
     }
 
-    // This method stops the animation.
     stopAnimation() {
         console.log('AnimationManager.stopAnimation called');
         this.isExerciseActive = false;
-        this.isPaused = false;
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
         }
         this.resetCircle();
-        this.updateUI('press the button', '');
+        this.updateUI('Press the button to start', '');
         this.cycleCount = 0;
         this.updateCycleCount();
-    }
 
-    // This method pauses the animation.
-    pauseAnimation() {
-        this.isPaused = true;
-        if (this.animationFrame) {
-            cancelAnimationFrame(this.animationFrame);
+        if (this.audioEl) {
+            this.audioEl.pause();
+            this.audioEl.currentTime = 0;
+        }
+
+        if (this.sessionStartTime) {
+            const sessionDuration = Date.now() - this.sessionStartTime;
+            this.sessionDurations.push(sessionDuration);
+            localStorage.setItem('sessionDurations', JSON.stringify(this.sessionDurations));
+            this.sessionStartTime = null;
         }
     }
 
-    // This method resumes the animation.
-    resumeAnimation() {
-        if (this.isExerciseActive && this.isPaused) {
-            this.isPaused = false;
-            this.lastTimestamp = 0;
-            this.animationFrame = requestAnimationFrame(this.breathingAnimation.bind(this));
-        }
-    }
-
-    // This method resets the circle animation.
     resetCircle() {
-        const countdownTimer = document.getElementById('breather-extension-timer');
-        if (countdownTimer) {
-            countdownTimer.textContent = '';
+        if (this.countdownEl) {
+            this.countdownEl.textContent = '';
         }
-        const circle = document.getElementById('breather-extension-circle');
-        if (circle) {
-            circle.style.transition = 'none';
-            circle.style.transform = 'scale(1)';
-            circle.style.opacity = '1';
+        if (this.circleEl) {
+            this.circleEl.style.transition = 'transform 0.5s, opacity 0.5s';
+            this.circleEl.style.transform = 'scale(1)';
+            this.circleEl.style.opacity = '1';
         }
     }
 
-    // This method updates the UI with the given instruction and countdown.
     updateUI(instruction, countdown) {
-        const instructionEl = document.getElementById('breather-extension-instruction');
-        const countdownEl = document.getElementById('breather-extension-timer');
-        if (instructionEl) instructionEl.textContent = instruction;
-        if (countdownEl) countdownEl.textContent = countdown;
+        if (this.instructionEl) this.instructionEl.textContent = instruction;
+        if (this.countdownEl) this.countdownEl.textContent = countdown;
     }
 
-    // This method updates the cycle count and displays the final score when
-    // the exercise is finished.
     updateCycleCount() {
         if (this.cycleCount >= 3) {
             this.stopAnimation();
@@ -219,10 +178,28 @@ class AnimationManager {
                 window.stopExercise();
             }
         } else {
-            if (typeof window.updateCycleDisplay === 'function') {
-                window.updateCycleDisplay();
-            }
+            this.updateCycleDisplay();
         }
+    }
+
+    updateCycleDisplay() {
+        const cycleDisplay = document.getElementById('cycle-display');
+        if (!cycleDisplay) {
+            console.error("Element with ID 'cycle-display' not found.");
+            return;
+        }
+
+        cycleDisplay.innerHTML = '';
+        for (let i = 0; i < 3; i++) {
+            const dot = document.createElement('div');
+            dot.className = `cycle-dot ${i < this.cycleCount ? 'completed' : ''}`;
+            cycleDisplay.appendChild(dot);
+        }
+    }
+
+    // Optionally, add a method to retrieve session history
+    getSessionHistory() {
+        return this.sessionDurations;
     }
 }
 

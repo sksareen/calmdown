@@ -60,7 +60,7 @@ class EyeTrackingManager {
      */
     init() {
         webgazer.setGazeListener(() => {}).begin();
-        webgazer.showVideoPreview(true).showPredictionPoints(true).applyKalmanFilter(true);
+        webgazer.showPredictionPoints(false).applyKalmanFilter(true);
     }
 
     /**
