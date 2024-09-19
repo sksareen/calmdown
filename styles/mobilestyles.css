@@ -1,7 +1,7 @@
 /* Media queries for responsiveness */
 @media (max-width: 767px) {
   #link { 
-    bottom: 8px;
+    bottom: 10px;
     font-size: 1rem; /* Slightly increased from 0.9rem */
   }
 
@@ -12,8 +12,8 @@
   }
 
   #breather-extension-outline-circle-big {
-    width: 75vmin;
-    height: 75vmin;
+    width: 60vmin;
+    height: 60vmin;
   }
 
   #breather-extension-circle, #breather-extension-outline-circle-small, #breather-extension-toggle-button {
@@ -23,7 +23,7 @@
 }
 
 @media (max-width: 768px) {
-  #calmTitle, , #breather-extension-instruction {
+  #calmTitle, #breather-extension-instruction {
     font-size: clamp(2.5rem, 4vw, 3.5rem); /* Increased from 2rem, 4vw, 3rem */
     top: 16%;
   }
@@ -67,6 +67,7 @@
   }
   
   #link {
-    font-size: .8rem;
+    font-size: .9rem;
+    bottom: 5%;
   }
 }
