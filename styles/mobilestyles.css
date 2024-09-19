@@ -25,12 +25,12 @@
 @media (max-width: 768px) {
   #calmTitle {
     font-size: clamp(2.3rem, 4vw, 3.5rem); /* Increased from 2rem, 4vw, 3rem */
-    top: 25%;
+    top: 20%;
   }
 
   #calmSubtitle {
     font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Increased from 1rem, 2vw, 1.2rem */
-    top: 5%;
+    top: 5%; 
   }
 
   #breather-extension-circle,
@@ -51,5 +51,9 @@
 
   #breather-extension-toggle-button {
     transform: translate(-50%, -50%) scale(0.85); /* Slightly increased from 0.8 */
+  }
+  
+  #open-instructions {
+    font-size: 2rem;
   }
 }
