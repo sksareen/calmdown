@@ -278,7 +278,7 @@ body.dark-mode .modal-content {
   transition: all 0.3s ease;
 }
 
-#open-instructions {
+#about {
     position: fixed;
     bottom: 100px;
     right: 50%;
@@ -292,6 +292,6 @@ body.dark-mode .modal-content {
     z-index: 999999;
 }
 
-#open-instructions:hover {
-    background-color: #3182ce;
-}
+#about:hover {
+        background-color: #3182ce;
+    }
