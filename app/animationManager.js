@@ -7,8 +7,8 @@ class AnimationManager {
         this.phase = 0;
         this.animationFrame = null;
         this.lastTimestamp = 0;
-        this.minScale = 1;
-        this.maxScale = 4;
+        this.minScale = .8;
+        this.maxScale = 4.4;
         this.lastPhaseType = null;
         this.cycleCount = 0;
         this.elapsedTime = 0;
