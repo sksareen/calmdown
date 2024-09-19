@@ -127,10 +127,9 @@ body {
 
 #breather-extension-toggle-button {
   position: fixed;
-  bottom: 10%;
+  bottom: 50%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #2ecc71;
   color: white;
 }
 
