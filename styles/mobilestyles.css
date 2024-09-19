@@ -36,11 +36,14 @@
   #breather-extension-circle,
   #breather-extension-outline-circle-small,
   #breather-extension-outline-circle-big {
-    transform: scale(0.9); /* Slightly increased from 0.8 for better visibility */
+    /*
+    transform: scale(0.9);
+    */
+    
   }
 
   #breather-extension-instruction {
-    bottom: 59%;
+    bottom: 60%;
     font-size: clamp(2.5vh, 2.5vw, 3.5vh); /* Increased from 2vh, 2vw, 2.5vh */
   }
 
@@ -50,7 +53,9 @@
   }
 
   #breather-extension-toggle-button {
-    transform: translate(-50%, -50%) scale(0.9); /* Slightly increased from 0.8 */
+    /* 
+    transform: translate(-50%, -50%) scale(0.9);
+    */
   }
   
   #open-instructions {

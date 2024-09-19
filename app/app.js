@@ -26,7 +26,7 @@ let isCountingDown = false;
 let animationManager;
 let currentExercise = 'anxiety';
 let countdownInterval;
-let countdown = 3;
+let countdown = 2;
 
 // Define a storage object for managing local storage
 const storage = {

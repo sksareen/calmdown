@@ -20,6 +20,8 @@ class AnimationManager {
         this.instructionEl = document.getElementById('breather-extension-instruction');
         this.countdownEl = document.getElementById('breather-extension-timer');
         this.circleEl = document.getElementById('breather-extension-circle');
+        this.calmTitleEl = document.getElementById('calmTitle');
+        this.calmSubtitleEl = document.getElementById('calmSubtitle');
 
         // Audio Element
         this.audioEl = document.getElementById('guided-audio');
@@ -122,6 +124,14 @@ class AnimationManager {
         console.log('AnimationManager.startAnimation called');
         this.sessionStartTime = Date.now();
 
+        // Hide calmTitle and calmSubtitle
+        if (this.calmTitleEl) this.calmTitleEl.style.display = 'none';
+        if (this.calmSubtitleEl) this.calmSubtitleEl.style.display = 'none';
+
+        // Show instruction and timer
+        if (this.instructionEl) this.instructionEl.style.display = 'block';
+        if (this.countdownEl) this.countdownEl.style.display = 'block';
+
         if (this.audioEl) {
             this.audioEl.currentTime = 0;
             this.audioEl.play();
@@ -138,6 +148,14 @@ class AnimationManager {
         this.updateUI('Press the button to start', '');
         this.cycleCount = 0;
         this.updateCycleCount();
+
+        // Show calmTitle and calmSubtitle
+        if (this.calmTitleEl) this.calmTitleEl.style.display = 'block';
+        if (this.calmSubtitleEl) this.calmSubtitleEl.style.display = 'block';
+
+        // Hide instruction and timer
+        if (this.instructionEl) this.instructionEl.style.display = 'none';
+        if (this.countdownEl) this.countdownEl.style.display = 'none';
 
         if (this.audioEl) {
             this.audioEl.pause();
@@ -197,11 +215,9 @@ class AnimationManager {
         }
     }
 
-    // Optionally, add a method to retrieve session history
     getSessionHistory() {
         return this.sessionDurations;
     }
 }
 
 window.AnimationManager = AnimationManager;
-
