@@ -1,12 +1,5 @@
 /* Responsive design */
 @media (max-width: 768px) {
-  #calmTitle {
-    font-size: clamp(2.5rem, 8vw, 3.5rem);
-  }
-
-  #calmSubtitle {
-    font-size: clamp(1rem, 4vw, 1.3rem);
-  }
 
   .circle-container {
     width: 90vmin;
@@ -28,5 +21,26 @@
     font-size: 0.9rem;
     padding: 0.6em 1.2em;
   }
-}
+  
+  
+  #calmTitle, #breather-extension-instruction {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    top: 9%;
+    width: 80%;
+  }
 
+  #calmSubtitle, #breather-extension-timer {
+    font-size: clamp(1rem, 4vw, 1.3rem); 
+    top: 18%; 
+  }
+  
+  #open-instructions {
+    font-size: .8rem;
+    bottom: 55px;
+  }
+  
+  #link {
+    font-size: .9rem;
+    bottom: 10px;
+  }
+}
