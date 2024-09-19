@@ -28,7 +28,6 @@ CalmDown is a simple web-based application designed to help you calm down in the
 ## Technical Notes
 
 - Built with vanilla JavaScript, HTML, and CSS
-- Uses WebGazer.js for eye-tracking functionality
 - Stores dark mode preference and user progress in local storage
 
 ## Development
