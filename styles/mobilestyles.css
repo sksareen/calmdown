@@ -16,8 +16,7 @@
     height: 90vmin;
   }
 
-  #breather-extension-toggle-button,
-  #open-instructions {
+  #breather-extension-toggle-button {
     font-size: 0.9rem;
     padding: 0.6em 1.2em;
   }
