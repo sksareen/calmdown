@@ -11,56 +11,30 @@
     color: #00000000;
   }
 
+  #breather-extension-circle, #breather-extension-outline-circle-small, #breather-extension-toggle-button {
+    width: 15vmin;
+    height: 15vmin;
+  }
+  
   #breather-extension-outline-circle-big {
     width: 60vmin;
     height: 60vmin;
   }
 
-  #breather-extension-circle, #breather-extension-outline-circle-small, #breather-extension-toggle-button {
-    width: 15vmin;
-    height: 15vmin;
-  }
-}
 
-@media (max-width: 768px) {
-  #calmTitle, #breather-extension-timer {
+  #calmTitle, #breather-extension-instruction {
     font-size: clamp(2.5rem, 4vw, 3.5rem); /* Increased from 2rem, 4vw, 3rem */
-    top: 19%;
+    top: 9%;
   }
 
-  #calmSubtitle, #breather-extension-instruction {
+  #calmSubtitle, #breather-extension-timer {
     font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Increased from 1rem, 2vw, 1.2rem */
-    top: 8%; 
+    top: 18%; 
   }
-
-/*
-  #breather-extension-circle,
-  #breather-extension-outline-circle-small,
-  #breather-extension-outline-circle-big {
-    transform: scale(0.9);
-    
-  }
-  
-  #breather-extension-instruction {
-    bottom: 60%;
-    font-size: clamp(2.5vh, 2.5vw, 3.5vh);
-  }
-
-  #breather-extension-timer {
-    bottom: 53%;
-    font-size: clamp(2.5vh, 2.5vw, 3.5vh); 
-  }
-
-
-  #breather-extension-toggle-button {
-    transform: translate(-50%, -50%) scale(0.9);
-  }
-  
-*/ 
   
   #open-instructions {
     font-size: .8rem;
-    bottom: 30px;
+    bottom: 55px;
   }
   
   #link {
