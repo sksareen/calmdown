@@ -135,14 +135,6 @@ body {
   z-index:999999;
 }
 
-#about {
-  position: fixed;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #4299e1;
-  color: white;
-}
 
 #breather-extension-toggle-button:hover,
 #open-instructions:hover {
