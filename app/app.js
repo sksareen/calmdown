@@ -243,25 +243,7 @@ function initializeApp() {
   // Detect if device is mobile
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-  if (!isMobile) {
-      // Initialize Eye Tracking
-      if (window.EyeTrackingManager) {
-          window.eyeTrackingManager = new EyeTrackingManager();
-          window.eyeTrackingManager.init();
-          window.eyeTrackingManager.startCalibration(() => {
-              window.eyeTrackingManager.startTracking();
-          });
-      } else {
-          console.warn("EyeTrackingManager is not loaded.");
-      }
-  } else {
-      console.log("Mobile device detected. Eye tracking disabled.");
-      // Optionally hide related UI elements
-      const pointsDisplay = document.getElementById("points-display");
-      if (pointsDisplay) {
-          pointsDisplay.style.display = "none";
-      }
-  }
+
 }
 
 // Handle key press events
