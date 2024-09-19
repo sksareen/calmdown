@@ -7,8 +7,8 @@ class AnimationManager {
         this.phase = 0;
         this.animationFrame = null;
         this.lastTimestamp = 0;
-        this.minScale = .7;
-        this.maxScale = 4.6;
+        this.minScale = 1;
+        this.maxScale = 4;
         this.lastPhaseType = null;
         this.cycleCount = 0;
         this.elapsedTime = 0;
@@ -65,7 +65,7 @@ class AnimationManager {
             const newScale = this.getCircleScale(currentPhase.type, progress);
             const newOpacity = currentPhase.type === 'inhale' ? 0.8 + (0.2 * progress) : 1 - (0.3 * progress);
 
-            if (Math.abs(newScale - this.lastScale) > 0.01 || Math.abs(newOpacity - this.lastOpacity) > 0.01) {
+            if (Math.abs(newScale - this.lastScale) > 0.005 || Math.abs(newOpacity - this.lastOpacity) > 0.005) {
                 this.circleEl.style.transform = `scale(${newScale})`;
                 this.circleEl.style.opacity = newOpacity;
                 this.lastScale = newScale;
