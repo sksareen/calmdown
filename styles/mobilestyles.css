@@ -1,0 +1,32 @@
+/* Responsive design */
+@media (max-width: 768px) {
+  #calmTitle {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+  }
+
+  #calmSubtitle {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+  }
+
+  .circle-container {
+    width: 90vmin;
+    height: 90vmin;
+  }
+
+  #breather-extension-circle, #breather-extension-outline-circle-small {
+    width: 22.5vmin;
+    height: 22.5vmin;
+  }
+
+  #breather-extension-outline-circle-big {
+    width: 90vmin;
+    height: 90vmin;
+  }
+
+  #breather-extension-toggle-button,
+  #open-instructions {
+    font-size: 0.9rem;
+    padding: 0.6em 1.2em;
+  }
+}
+
