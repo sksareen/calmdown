@@ -26,6 +26,7 @@
   #calmTitle, #breather-extension-instruction {
     font-size: clamp(2.5rem, 8vw, 3.5rem);
     width: 80%;
+    top: 5%;
   }
 
   #calmSubtitle{
@@ -34,6 +35,7 @@
   
    #breather-extension-timer {
     font-size: clamp(2rem, 4vw, 2rem); 
+    top: 15%
   }
   
   #open-instructions {
