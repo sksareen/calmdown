@@ -25,11 +25,12 @@
   #calmTitle, #breather-extension-instruction {
     font-size: clamp(2.5rem, 4vw, 3.5rem); /* Increased from 2rem, 4vw, 3rem */
     top: 9%;
+    width: 80%;
   }
 
   #calmSubtitle, #breather-extension-timer {
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Increased from 1rem, 2vw, 1.2rem */
-    top: 18%; 
+    font-size: clamp(2rem, 2.5vw, 2rem); 
+    top: 20%; 
   }
   
   #open-instructions {
