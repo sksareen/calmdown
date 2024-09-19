@@ -30,7 +30,7 @@
 
   #calmSubtitle, #breather-extension-timer {
     font-size: clamp(1.7rem, 2.5vw, 1.7rem); 
-    top: 20%; 
+    top: 18%; 
   }
   
   #open-instructions {
