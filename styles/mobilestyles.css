@@ -23,12 +23,12 @@
 }
 
 @media (max-width: 768px) {
-  #calmTitle {
+  #calmTitle, , #breather-extension-instruction {
     font-size: clamp(2.5rem, 4vw, 3.5rem); /* Increased from 2rem, 4vw, 3rem */
     top: 16%;
   }
 
-  #calmSubtitle {
+  #calmSubtitle, #breather-extension-timer {
     font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Increased from 1rem, 2vw, 1.2rem */
     top: 5%; 
   }
@@ -42,15 +42,18 @@
     
   }
 
+/*
   #breather-extension-instruction {
     bottom: 60%;
-    font-size: clamp(2.5vh, 2.5vw, 3.5vh); /* Increased from 2vh, 2vw, 2.5vh */
+    font-size: clamp(2.5vh, 2.5vw, 3.5vh);
   }
 
   #breather-extension-timer {
     bottom: 53%;
-    font-size: clamp(2.5vh, 2.5vw, 3.5vh); /* Increased from 1.5vh, 1.5vw, 2.5vh */
+    font-size: clamp(2.5vh, 2.5vw, 3.5vh); 
   }
+  
+  */
 
   #breather-extension-toggle-button {
     /* 
@@ -60,6 +63,10 @@
   
   #open-instructions {
     font-size: .7rem;
-    bottom: 8%;
+    bottom: 9%;
+  }
+  
+  #link {
+    font-size: .8rem;
   }
 }
