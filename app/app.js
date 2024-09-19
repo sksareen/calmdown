@@ -49,7 +49,7 @@ function initInstructionsModal() {
   console.log("Initializing instructions modal");
   const modal = document.getElementById('instructions-modal');
   const closeBtn = document.getElementById('close-instructions');
-  const openInstructionsBtn = document.getElementById('open-instructions');
+  const openInstructionsBtn = document.getElementById('about');
 
   // Show modal on initial load by adding 'visible' class
   if (modal) {

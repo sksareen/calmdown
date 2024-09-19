@@ -114,8 +114,7 @@ body {
 }
 
 /* Buttons */
-#breather-extension-toggle-button,
-#open-instructions {
+#breather-extension-toggle-button{
   padding: 0.8em 1.5em;
   font-size: 1rem;
   font-weight: bold;
