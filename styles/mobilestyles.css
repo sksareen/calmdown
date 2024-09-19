@@ -25,7 +25,7 @@
 @media (max-width: 768px) {
   #calmTitle {
     font-size: clamp(2.3rem, 4vw, 3.5rem); /* Increased from 2rem, 4vw, 3rem */
-    top: 20%;
+    top: 17%;
   }
 
   #calmSubtitle {
@@ -45,7 +45,7 @@
   }
 
   #breather-extension-timer {
-    bottom: 54%;
+    bottom: 53%;
     font-size: clamp(2.5vh, 2.5vw, 3.5vh); /* Increased from 1.5vh, 1.5vw, 2.5vh */
   }
 
