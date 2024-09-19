@@ -25,7 +25,7 @@
 @media (max-width: 768px) {
   #calmTitle {
     font-size: clamp(2.5rem, 4vw, 3.5rem); /* Increased from 2rem, 4vw, 3rem */
-    top: 15%;
+    top: 16%;
   }
 
   #calmSubtitle {
@@ -36,7 +36,7 @@
   #breather-extension-circle,
   #breather-extension-outline-circle-small,
   #breather-extension-outline-circle-big {
-    transform: scale(0.85); /* Slightly increased from 0.8 for better visibility */
+    transform: scale(0.9); /* Slightly increased from 0.8 for better visibility */
   }
 
   #breather-extension-instruction {
@@ -50,11 +50,11 @@
   }
 
   #breather-extension-toggle-button {
-    transform: translate(-50%, -50%) scale(0.85); /* Slightly increased from 0.8 */
+    transform: translate(-50%, -50%) scale(0.9); /* Slightly increased from 0.8 */
   }
   
   #open-instructions {
     font-size: .7rem;
-    bottom: 10%;
+    bottom: 8%;
   }
 }
