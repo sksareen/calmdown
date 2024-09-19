@@ -94,6 +94,8 @@ body {
 #breather-extension-timer {
   position: absolute;
   text-align: center;
+  color: #4299e1;
+  font-weight: bold;
   width: 80%;
   left: 50%;
   transform: translateX(-50%);
@@ -109,14 +111,13 @@ body {
 #breather-extension-timer {
   top: 20%;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: bold;
   opacity: 0.6;
 }
 
 /* Buttons */
 #breather-extension-toggle-button{
   padding: 0.8em 1.5em;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   border: none;
   border-radius: 25px;
@@ -134,7 +135,7 @@ body {
   z-index:999999;
 }
 
-#open-instructions {
+#about {
   position: fixed;
   bottom: 5%;
   left: 50%;

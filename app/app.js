@@ -310,7 +310,7 @@ function startExercise() {
     } else {
       clearInterval(countdownInterval);
       countdownOverlay.classList.remove('visible');
-      toggleButton.textContent = 'Stop';
+      toggleButton.textContent = 'End';
       toggleButton.className = 'stop pulsing';
       toggleButton.disabled = false;
       isExerciseActive = true;
