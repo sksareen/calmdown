@@ -13,12 +13,12 @@
 
   #breather-extension-instruction {
     bottom: 23%;
-    font-size: 1.2rem; /* Added explicit font size */
+    font-size: 1.5rem; /* Added explicit font size */
   }
 
   #breather-extension-timer {
     bottom: 35%;
-    font-size: 1.1rem; /* Added explicit font size */
+    font-size: 1.4rem; /* Added explicit font size */
   }
 
   #points-display {
@@ -56,13 +56,13 @@
   }
 
   #breather-extension-instruction {
-    bottom: 25%;
-    font-size: clamp(2.2vh, 2.2vw, 2.7vh); /* Increased from 2vh, 2vw, 2.5vh */
+    bottom: 60%;
+    font-size: clamp(2.4vh, 2.5vw, 3vh); /* Increased from 2vh, 2vw, 2.5vh */
   }
 
   #breather-extension-timer {
     bottom: 32%;
-    font-size: clamp(1.7vh, 1.7vw, 2.7vh); /* Increased from 1.5vh, 1.5vw, 2.5vh */
+    font-size: clamp(2vh, 2vw, 3vh); /* Increased from 1.5vh, 1.5vw, 2.5vh */
   }
 
   #breather-extension-toggle-button {

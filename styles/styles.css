@@ -137,7 +137,7 @@ h2 {
 
 #breather-extension-timer {
   position: fixed;
-  bottom: 36%;
+  bottom: 50%;
   left: 50%;
   transform: translate(-50%, -30%);
   color: #fff;
