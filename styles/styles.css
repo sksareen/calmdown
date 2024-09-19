@@ -240,21 +240,6 @@ h2 {
   animation: pulse 1s infinite;
 }
 
-#points-display {
-  position: absolute;
-  bottom: 14%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #333;
-  font-weight: normal;
-  z-index: 2147483648;
-  opacity: 0.6;
-  transition: all 0.3s ease;
-}
 
 /* Dark mode styles */  
 body.dark-mode {
@@ -285,34 +270,6 @@ body.dark-mode {
   color: #00000000;
 }
 
-/* Webgazer styles */
-#webgazerVideoContainer,
-#webgazerFaceOverlayContainer,
-#webgazerVideoFeed,
-#webgazerFaceOverlay,
-#webgazerFaceFeedbackBox,
-#webgazerVideoFeedContainer,
-#webgazerVideoCanvas {
-  position: fixed !important;
-  right: 10px !important;
-  top: 15% !important;
-  z-index: 99999999 !important;
-}
-
-#webgazerVideoContainer {
-  width: 2vw !important;
-}
-
-#webgazerVideoFeed,
-#webgazerFaceOverlay {
-  width: 17.5vh !important;
-  height: 13.3vh !important;
-  border-radius: 15px !important;
-}
-
-#webgazerFaceFeedbackBox {
-  display: none !important;
-}
 
 footer {
   z-index: 214748365999; /* Increased z-index to be above the overlay */
@@ -417,7 +374,7 @@ body.dark-mode #link a {
     position: fixed;
     z-index: 2147483649;
     left: 0;
-    top: 0;
+    top: 10%;
     width: 100%;
     height: 100%;
     overflow: auto;
