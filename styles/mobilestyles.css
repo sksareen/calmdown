@@ -24,8 +24,8 @@
 
 @media (max-width: 768px) {
   #calmTitle {
-    font-size: clamp(2.3rem, 4vw, 3.5rem); /* Increased from 2rem, 4vw, 3rem */
-    top: 13%;
+    font-size: clamp(2.5rem, 4vw, 3.5rem); /* Increased from 2rem, 4vw, 3rem */
+    top: 15%;
   }
 
   #calmSubtitle {
@@ -41,7 +41,6 @@
 
   #breather-extension-instruction {
     bottom: 59%;
-    width: 60%;
     font-size: clamp(2.5vh, 2.5vw, 3.5vh); /* Increased from 2vh, 2vw, 2.5vh */
   }
 
@@ -55,7 +54,7 @@
   }
   
   #open-instructions {
-    font-size: .8rem;
-    bottom: 15%;
+    font-size: .7rem;
+    bottom: 10%;
   }
 }
