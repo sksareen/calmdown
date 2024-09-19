@@ -1,0 +1,71 @@
+/* Media queries for responsiveness */
+@media (max-width: 767px) {
+  #link { 
+    bottom: 8px;
+    font-size: 1rem; /* Slightly increased from 0.9rem */
+  }
+
+  #breather-extension-toggle-button {
+    font-size: 1.1rem; /* Slightly increased from 1rem */
+    padding: 0.5rem 0;
+    color: #00000000;
+  }
+
+  #breather-extension-instruction {
+    bottom: 23%;
+    font-size: 1.2rem; /* Added explicit font size */
+  }
+
+  #breather-extension-timer {
+    bottom: 35%;
+    font-size: 1.1rem; /* Added explicit font size */
+  }
+
+  #points-display {
+    font-size: 1.3rem; /* Slightly increased from 1.2rem */
+    bottom: 16%;
+    display: none;
+  }
+
+  #breather-extension-outline-circle-big {
+    width: 75vmin;
+    height: 75vmin;
+  }
+
+  #breather-extension-circle, #breather-extension-outline-circle-small, #breather-extension-toggle-button {
+    width: 15vmin;
+    height: 15vmin;
+  }
+}
+
+@media (max-width: 768px) {
+  #calmTitle {
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Increased from 2rem, 4vw, 3rem */
+    top: 5%;
+  }
+
+  #calmSubtitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Increased from 1rem, 2vw, 1.2rem */
+    top: 15%;
+  }
+
+  #breather-extension-circle,
+  #breather-extension-outline-circle-small,
+  #breather-extension-outline-circle-big {
+    transform: scale(0.85); /* Slightly increased from 0.8 for better visibility */
+  }
+
+  #breather-extension-instruction {
+    bottom: 25%;
+    font-size: clamp(2.2vh, 2.2vw, 2.7vh); /* Increased from 2vh, 2vw, 2.5vh */
+  }
+
+  #breather-extension-timer {
+    bottom: 32%;
+    font-size: clamp(1.7vh, 1.7vw, 2.7vh); /* Increased from 1.5vh, 1.5vw, 2.5vh */
+  }
+
+  #breather-extension-toggle-button {
+    transform: translate(-50%, -50%) scale(0.85); /* Slightly increased from 0.8 */
+  }
+}
