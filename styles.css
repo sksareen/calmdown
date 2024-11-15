@@ -6,6 +6,7 @@ body {
   padding: 0;
   transition: background-color 0.3s ease, color 0.3s ease;
   background-color: #f7fafc;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -13,11 +14,11 @@ h2 {
 }
 
 #calmTitle {
-  position: fixed;
+  position: absolute;
   font-weight: 600;
-  font-size: clamp(3rem, 6vw, 4rem);
+  font-size: clamp(2rem, 8vw, 4rem);
   letter-spacing: 0.03em;
-  top: 3%;
+  top: 5%;
   left: 50%;
   transform: translateX(-50%);
   color: #4299e1;
@@ -28,33 +29,25 @@ h2 {
 }
 
 #calmSubtitle {  
-  position: fixed;
+  position: absolute;
   font-weight: 400;
-  font-size: clamp(1.5rem, 2.5vw, 1.2rem);
-  top: 13%;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  top: 15%;
   left: 50%;
-  padding: 10px;
+  padding: 0;
   color: #4299e1;
   opacity: 0.8;
   z-index: 2147483659;
   text-align: center;
   transform: translateX(-50%);
   transition: all 0.3s ease;
+  width: 90%;
 }
 
 #breather-extension-overlay {
-  background: #e6f7ff;
-}
-
-.dark-mode #breather-extension-overlay {
-  background: #1e1612e6 !important;
-  background: linear-gradient(135deg, #e6f7ff 0%, #ccddee 100%);
-}
-
-/* Overlay styles */
-#breather-extension-overlay {
-  position: fixed;
-  inset: 0;
+  position: relative;
+  height: 100vh;
+  width: 100%;
   background: #f0f5ff;
   display: flex;
   justify-content: center;
@@ -62,12 +55,13 @@ h2 {
   z-index: 21477;
   opacity: 1;
   transition: opacity 0.3s ease-in-out, background-color 0.3s ease;
+  scroll-snap-align: start;
 }
 
 #breather-extension-content {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,7 +69,7 @@ h2 {
 }
 
 .circle-container {
-  position: fixed;
+  position: relative;
   display: flex;
   width: 80vmin;
   height: 80vmin;
@@ -127,12 +121,13 @@ h2 {
 }
 
 #breather-extension-instruction {
-  bottom: 30%;
-  font-size: clamp(3vh, 3vw, 3vh);
+  bottom: 25%;
+  font-size: clamp(1rem, 4vw, 1.5rem);
   font-weight: normal;
   z-index: 9999;
   opacity: 0.6;
   transition: all 0.3s ease;
+  width: 90%;
 }
 
 #breather-extension-timer {
@@ -141,13 +136,13 @@ h2 {
   left: 50%;
   transform: translate(-50%, -30%);
   color: #fff;
-  font-size: clamp(2vh, 2vw, 3vh);
+  font-size: clamp(1.2rem, 5vw, 2rem);
   font-weight: bold;
   z-index: 9999;
   opacity: 0.6;
-  width: 2.2rem;
+  width: auto;
   height: 2.2rem;
-  padding: 1px;
+  padding: 10px;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
@@ -187,7 +182,7 @@ h2 {
 }
 
 #breather-extension-toggle-button {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   padding: 0.5em;
@@ -196,15 +191,14 @@ h2 {
   height: 10vmin;
   width: 10vmin;
   border: none;
-  color: white;
   cursor: pointer;
   border-radius: 100%;
   z-index: 99999;
   background-color: #2ecc71;
-  box-shadow:  0 0 10px 1.5vmin rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 10px 1.5vmin rgba(0, 0, 0, 0.05);
   transform: translate(-50%, -50%);
   transition: all 0.1s ease;
-  color: #00000000;
+  color: transparent;
 }
 
 #breather-extension-toggle-button:hover {
@@ -566,4 +560,192 @@ body.dark-mode #link a {
 
 .dark-mode #open-instructions:hover {
     background-color: #2c5282;
+}
+
+/* Loading Screen Styles */
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f7fafc; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#loading-message {
+  font-size: 2rem;
+  color: #4299e1;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+/* Hide the main content while loading */
+body.loading #app,
+body.loading #calmTitle,
+body.loading #calmSubtitle,
+body.loading #breather-extension-toggle-button,
+body.loading #link,
+body.loading #open-instructions,
+body.loading #scroll-indicator {
+  display: none;
+}
+
+#scroll-indicator {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #4299e1;
+  opacity: 0.7;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+  z-index: 2147483648;
+  text-decoration: none;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+#scroll-indicator:hover {
+  opacity: 1;
+}
+
+#instructions-content {
+  position: relative;
+  padding: 50px 20px;
+  background-color: #f0f5ff;
+  color: #4a5568;
+  text-align: center;
+  height: 100vh;
+  scroll-snap-align: start;
+  border: 1px solid #4a5568;
+}
+
+#instructions-content h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+#instructions-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* Add these new styles */
+html {
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow-y: scroll; /* Ensure scrolling is enabled */
+}
+
+#breather-extension-overlay {
+  scroll-snap-align: start;
+}
+
+#instructions-content {
+  scroll-snap-align: start;
+}
+
+/* Update text sizing for better mobile responsiveness */
+
+#calmTitle {
+  font-size: clamp(2rem, 8vw, 4rem);  /* Increased from 6vw to 8vw */
+  top: 5%;
+}
+
+#calmSubtitle {  
+  font-size: clamp(1rem, 3vw, 1.5rem);  /* Adjusted for better readability */
+  top: 15%;
+  width: 90%;  /* Added to prevent text overflow */
+  padding: 0;  /* Remove padding to prevent unwanted spacing */
+}
+
+#breather-extension-instruction {
+  bottom: 25%;
+  font-size: clamp(1rem, 4vw, 1.5rem);  /* Adjusted for better visibility */
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#breather-extension-timer {
+  font-size: clamp(1.2rem, 5vw, 2rem);  /* Increased size for better visibility */
+  width: auto;  /* Changed from fixed width */
+  padding: 10px;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+  #instructions-content h2 {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    margin-bottom: 1rem;
+  }
+
+  #instructions-content p {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    line-height: 1.4;
+    padding: 0 15px;
+  }
+
+  #countdown-timer {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  #countdown-message {
+    font-size: clamp(1.2rem, 5vw, 1.6rem);
+  }
+
+  #loading-message {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  #points-display {
+    font-size: clamp(0.9rem, 4vw, 1.2rem);
+    padding: 6px 12px;
+    bottom: 12%;
+  }
+
+  #link {
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+    padding: 8px 16px;
+    bottom: 15px;
+  }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 360px) {
+  #calmTitle {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+    top: 3%;
+  }
+
+  #calmSubtitle {
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    top: 12%;
+  }
+
+  #breather-extension-instruction {
+    bottom: 22%;
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+  }
 }

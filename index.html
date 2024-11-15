@@ -1,54 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CalmDown: Find Your Calm with Guided Breathing Exercises | CalmDown</title>
+    <title>CalmDown: Find Your Calm with Guided Breathing Exercises</title>
+    
+    <!-- Combined meta tags for SEO -->
     <meta name="description" content="CalmDown helps you reduce anxiety and enhance relaxation with guided breathing exercises and soothing visuals. Track your progress and stay accountable to your calming practices.">
-    <link rel="canonical" href="https://calmdown.me">
     <meta name="robots" content="index, follow">
+    
+    <!-- Combined Open Graph and Twitter tags -->
     <meta property="og:title" content="CalmDown: Find Your Calm with Guided Breathing Exercises">
     <meta property="og:description" content="Reduce anxiety and enhance relaxation with guided breathing exercises and soothing visuals.">
     <meta property="og:url" content="https://calmdown.me">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CalmDown: Find Your Calm with Guided Breathing Exercises">
-    <meta name="twitter:description" content="Reduce anxiety and enhance relaxation with guided breathing exercises and soothing visuals.">
+    
+    <!-- Resources -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="media/img/icon.png" type="image/png">
 </head>
 <body>
-    <div id="calmTitle">CalmDown</div>
-    <div id="calmSubtitle">Breathe deeply and focus on the circle</div>
-
-    <!-- Instructions Modal -->
-    <div id="instructions-modal" class="modal">
-        <div class="modal-content">
-            <span id="close-instructions" class="close">&times;</span>
-            <h2>Welcome to CalmDown</h2>
-            <p>Use this app to find your calm with guided breathing exercises. Follow the on-screen instructions, focus on the breathing circle, and track your progress.</p>
-            <p>Your focus is monitored locally to help you stay engaged and achieve relaxation.</p>
-        </div>
+    <div id="loading-screen">
+        <div id="loading-message">It's ok, everything will be fine.</div>
     </div>
 
-    <!-- Open Instructions Button -->
-    <button id="open-instructions">Instructions</button>
+    <header>
+        <h1 id="calmTitle">CalmDown</h1>
+        <p id="calmSubtitle">Breathe deeply and focus on the circle</p>
+    </header>
 
-    <div id="link">
-        <a href="https://savarsareen.com" target="_blank">Made by Savar</a>
-    </div>
-
-    <div id="app">
+    <main id="app">
         <div id="breather-extension-overlay">
             <div id="breather-extension-content">
-                <!-- <div id="exercise-selector" style="margin-top: 15px;">
-                    <label for="exercise-dropdown">Choose Exercise:</label>
-                    <select id="exercise-dropdown">
-                        <option value="anxiety">Box Breathing (4-4-4-4)</option>
-                        <option value="deepRelax">Deep Relaxation (5-5-5-5)</option>
-                    </select>
-                </div> -->
-
                 <div class="circle-container">
                     <div id="breather-extension-circle"></div>
                     <div id="breather-extension-outline-circle-small"></div>
@@ -57,24 +43,30 @@
 
                 <div id="breather-extension-instruction">Press the button to start</div>
                 <div id="breather-extension-timer"></div>
-
                 <button id="breather-extension-toggle-button">Start</button>
 
                 <div id="points-display"></div>
                 <div id="cycle-display"></div>
 
-                <!-- <button id="dark-mode-toggle">Toggle Dark Mode</button> -->
-
-                <!-- Add this within the body, preferably inside #breather-extension-content -->
                 <audio id="guided-audio" src="media/audio/guided_breathing.mp3" preload="auto"></audio>
             </div>
         </div>
-    </div>
 
-    <!-- Countdown Overlay -->
-    <div id="countdown-overlay">
-        <div id="countdown-timer">3</div>
-    </div>
+        <div id="countdown-overlay">
+            <div id="countdown-timer">3</div>
+        </div>
+        <section id="instructions-content">
+            <h2>The Science of Calm Breathing</h2>
+            <p>Deep, mindful breathing activates your parasympathetic nervous system - your body's natural relaxation response. By extending your exhales and breathing from your diaphragm, you can quickly lower stress hormones, decrease heart rate, and create a profound sense of peace.</p>
+            <p>As you follow the gentle rhythm of the circle, allow each breath to release tension and bring you into the present moment. Your body knows how to find balance - trust in this ancient practice that has calmed minds for thousands of years.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div id="link">
+            <a href="https://savarsareen.com" target="_blank" rel="noopener">Made by Savar</a>
+        </div>
+    </footer>
 
     <script src="app/animationManager.js"></script>
     <script src="app/app.js"></script>

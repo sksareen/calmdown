@@ -1,3 +1,21 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // Add 'loading' class to body
+  document.body.classList.add('loading');
+
+  // Set a timeout to remove the loading screen after a delay
+  setTimeout(() => {
+    // Fade out the loading screen
+    document.getElementById('loading-screen').style.opacity = '0';
+
+    // After the fade-out transition, remove the loading screen
+    setTimeout(() => {
+      document.getElementById('loading-screen').style.display = 'none';
+      // Remove 'loading' class from body to show main content
+      document.body.classList.remove('loading');
+    }, 1000); // Match the CSS transition duration
+  }, 3000); // Display the message for 3 seconds
+});
+
 // Initialize the exercises object with the Box Breathing exercise
 window.exercises = {
   anxiety: { 
@@ -43,47 +61,6 @@ const storage = {
       });
   }
 };
-
-// Initialize the instructions modal
-function initInstructionsModal() {
-  console.log("Initializing instructions modal");
-  const modal = document.getElementById('instructions-modal');
-  const closeBtn = document.getElementById('close-instructions');
-  const openInstructionsBtn = document.getElementById('open-instructions');
-
-  // Show modal on initial load by adding 'visible' class
-  if (modal) {
-    modal.classList.add('visible');
-  }
-
-  // Close modal when clicking the close button
-  if (closeBtn) {
-    closeBtn.onclick = () => {
-      modal.classList.remove('visible');
-    };
-  }
-
-  // Open modal when clicking the 'Open Instructions' button
-  if (openInstructionsBtn) {
-    openInstructionsBtn.onclick = () => {
-      modal.classList.add('visible');
-    };
-  }
-
-  // Close modal when clicking outside of it
-  window.onclick = (event) => {
-    if (event.target === modal) {
-      modal.classList.remove('visible');
-    }
-  };
-
-  // Close modal with 'Escape' key
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modal.classList.contains('visible')) {
-      modal.classList.remove('visible');
-    }
-  });
-}
 
 // Initialize the application when the DOMContentLoaded event is fired
 function initializeApp() {
@@ -156,7 +133,7 @@ function initializeApp() {
   updateCycleDisplay();
 
   // Initialize the instructions modal
-  initInstructionsModal();
+  // initInstructionsModal();
 
   // Add event listener for exercise toggle
   const exerciseToggle = document.createElement('button');
@@ -388,3 +365,38 @@ window.stopExercise = stopExercise;
 
 // Initialize the application when the DOMContentLoaded event is fired
 document.addEventListener('DOMContentLoaded', initializeApp);
+
+// Variable to prevent repeated scrolling
+let hasScrolledToInfo = false;
+
+// Function to smoothly scroll to the additional info section
+function scrollToAdditionalInfo() {
+  if (hasScrolledToInfo) return;
+  hasScrolledToInfo = true;
+  const infoSection = document.getElementById('additional-info');
+  if (infoSection) {
+    infoSection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// Add a scroll event listener
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50 && !hasScrolledToInfo) {
+    scrollToAdditionalInfo();
+  }
+});
+
+// Smooth scrolling to instructions content when the user scrolls down slightly
+document.addEventListener('DOMContentLoaded', () => {
+  let hasScrolledToInstructions = false;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50 && !hasScrolledToInstructions) {
+      hasScrolledToInstructions = true;
+      const instructionsContent = document.getElementById('instructions-content');
+      if (instructionsContent) {
+        instructionsContent.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+});
